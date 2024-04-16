@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Mad Libs Game</title>
+    <!-- Link to the CSS file -->
+    <style>
+        /* Basic styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding-top: 20px;
+            background-image: url('https://source.unsplash.com/random/1600x900');
+            background-size: cover;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Content wrapper to add background overlay */
+        .content-wrapper {
+            background-color: rgba(0, 0, 0, 0.7); /* Black color with 70% opacity */
+            border-radius: 10px; /* Rounded corners */
+            padding: 20px; /* Padding around the content */
+            margin: 20px auto; /* Center the content wrapper */
+            width: 50%; /* Set the width of the content wrapper */
+        }
+
+        /* Styling the input fields */
+        input {
+            margin: 5px;
+            padding: 8px;
+            width: 200px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        /* Styling the button */
+        button {
+            padding: 10px 15px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #3b82f6; /* Blue color */
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2563eb; /* Darker blue on hover */
+        }
+
+        /* Styling for the story paragraph */
+        #story {
+            font-size: 1.2em;
+            padding-top: 15px;
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-bottom: 15px;
+            color: #f3f4f6; /* Light gray text color for contrast */
+            background-color: rgba(255, 255, 255, 0.1); /* Slightly opaque white background */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Soft shadow for depth */
+            line-height: 1.6; /* Increase line height for better readability */
+            animation: fadeIn 1s ease-in-out; /* Apply animation */
+            transition: background-color 0.3s; /* Transition for background color */
+        }
+
+        /* Add hover effect for story background */
+        #story:hover {
+            background-color: rgba(255, 255, 255, 0.3); /* Increase opacity on hover */
+        }
+
+        /* Animation for fading in the story */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1>Mad Libs Game</h1>
+
+    <!-- Add a div with a class to wrap the form and story section -->
+    <div class="content-wrapper">
+        <form id="madLibsForm">
+            <label for="noun">Enter a noun:</label>
+            <input type="text" id="noun" name="noun" list="nounList" required><br>
+            <datalist id="nounList">
+                <option value="dog">
+                <option value="cat">
+                <option value="tree">
+                <option value="mountain">
+                <option value="car">
+                <option value="house">
+                <option value="book">
+            </datalist>
+
+            <label for="verb">Enter a verb:</label>
+            <input type="text" id="verb" name="verb" list="verbList" required><br>
+            <datalist id="verbList">
+                <option value="run">
+                <option value="jump">
+                <option value="swim">
+                <option value="sing">
+                <option value="dance">
+                <option value="write">
+                <option value="explore">
+            </datalist>
+
+            <label for="adjective">Enter an adjective:</label>
+            <input type="text" id="adjective" name="adjective" list="adjectiveList" required><br>
+            <datalist id="adjectiveList">
+                <option value="happy">
+                <option value="sad">
+                <option value="angry">
+                <option value="excited">
+                <option value="colorful">
+                <option value="mysterious">
+                <option value="beautiful">
+            </datalist>
+
+            <label for="adverb">Enter an adverb:</label>
+            <input type="text" id="adverb" name="adverb" list="adverbList" required><br>
+            <datalist id="adverbList">
+                <option value="quickly">
+                <option value="silently">
+                <option value="happily">
+                <option value="eagerly">
+                <option value="gracefully">
+                <option value="boldly">
+                <option value="briskly">
+            </datalist>
+
+            <label for="celebrity">Enter a celebrity:</label>
+            <input type="text" id="celebrity" name="celebrity" list="celebrityList" required><br>
+            <datalist id="celebrityList">
+                <option value="Tom Hanks">
+                <option value="Oprah Winfrey">
+                <option value="Taylor Swift">
+                <option value="Will Smith">
+                <option value="Beyoncé">
+                <option value="Chris Hemsworth">
+                <option value="Emma Watson">
+            </datalist>
+
+            <label for="place">Enter a place:</label>
+            <input type="text" id="place" name="place" list="placeList" required><br>
+            <datalist id="placeList">
+                <option value="Paris">
+                <option value="New York">
+                <option value="Tokyo">
+                <option value="Sydney">
+                <option value="Rio de Janeiro">
+                <option value="Hawaii">
+                <option value="London">
+            </datalist>
+
+            <button type="button" onclick="generateStory()">Generate Story</button>
+        </form>
+
+        <h2>Your Mad Lib Story:</h2>
+        <p id="story"></p>
+    </div>
+    <div id="explanation">
+        <p>This Mad Libs game is an interactive project that demonstrates the use of HTML, CSS, and JavaScript to create an engaging user experience. The game allows users to input various words (nouns, verbs, adjectives, adverbs, celebrities, and places) to generate a unique story.</p>
+        <h3>HTML Tags Used:</h3>
+        <ul>
+            <li>DOCTYPE: Specifies the document type and version of HTML.</li>
+            <li>html: Defines the root element of an HTML document.</li>
+            <li>head: Contains meta-information about the document, such as the title and linked resources.</li>
+            <li>title: Sets the title of the document, visible in the browser tab.</li>
+            <li>style: Contains CSS rules that style the document's elements.</li>
+            <li>body: Contains the visible content of the document.</li>
+            <li>div: Defines a division or section in the document.</li>
+            <li>form: Encapsulates input fields and submission elements for user input.</li>
+            <li>input: Allows users to enter data and select options in the form.</li>
+            <li>datalist: Provides a list of predefined options for an input element.</li>
+            <li>button: Creates a clickable button for user interaction.</li>
+            <li>p: Defines a paragraph of text.</li>
+            <li>footer: Defines the footer section at the bottom of the document.</li>
+            <li>script: Embeds JavaScript code for interactivity and functionality.</li>
+        </ul>
+        <h3>CSS Styles Used:</h3>
+        <ul>
+            <li>body: Sets background, padding, font, and color properties for the body element.</li>
+            <li>.content-wrapper: Styles the div containing the form and story, adding padding, border-radius, and opacity.</li>
+            <li>input: Sets styling properties for input fields, including padding, width, and border-radius.</li>
+            <li>button: Specifies padding, margin, and background color for buttons.</li>
+            <li>#story: Styles the paragraph that displays the story, including padding, color, background color, and animation.</li>
+            <li>@keyframes: Defines the animation for fading in the story element.</li>
+        </ul>
+        <h3>JavaScript Functionality:</h3>
+        <ul>
+            <li>generateStory function: Constructs the Mad Libs story using user inputs.</li>
+            <li>Retrieval of user inputs: Gets the values from input fields for the story.</li>
+            <li>Story construction: Combines the user inputs to create a story.</li>
+            <li>Display of the story: Displays the generated story in the #story paragraph element.</li>
+            <li>Last modified date: Retrieves and displays the last modified date of the document in the footer.</li>
+        </ul>
+    </div>
+    <footer style="background-color: #333030; padding: 10px; text-align: center; border-top: 2px solid #dee2e6;">
+        <p style="margin: 0; font-size: 14px; color: #cb2516;">Last updated:
+            <span id="lastModified" style="font-weight: bold; color: #cf1111;"></span>
+        </p>
+    </footer>
+    <script type="text/javascript">
+        var lastModified = new Date(document.lastModified);
+        document.getElementById('lastModified').textContent = lastModified.toLocaleString();
+    </script>
+    <script>
+        // Function to generate the story
+        function generateStory() {
+            // Get user inputs
+            const noun = document.getElementById("noun").value;
+            const verb = document.getElementById("verb").value;
+            const adjective = document.getElementById("adjective").value;
+            const adverb = document.getElementById("adverb").value;
+            const celebrity = document.getElementById("celebrity").value;
+            const place = document.getElementById("place").value;
+
+            // Create the Mad Libs story
+            const story = `One fine day, a ${adjective} ${noun} decided to ${verb} ${adverb} in ${place}. While on their adventure, they bumped into ${celebrity} who invited them to join in a fun-filled day. They enjoyed delicious snacks and had amazing conversations. By the end of the day, everyone felt a sense of fulfillment, and they promised to meet up again soon. What a wonderful and ${adjective} day it was!`;
+
+            // Display the story
+            const storyElement = document.getElementById("story");
+            storyElement.innerText = story;
+            storyElement.style.animation = "fadeIn 1s ease-in-out"; // Apply animation each time a new story is generated
+        }
+
+    </script>
+
+</body>
+
+</html>
